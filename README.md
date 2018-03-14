@@ -5,7 +5,7 @@
 
 Use the WeChat work API in your Golang apps to send a Text Card (文本卡片消息)
 
-API reference for [WeChat Work](https://work.weixin.qq.com).
+API reference for [WeChat Work](https://work.weixin.qq.com/api/doc#10167), please check this to know how to configure the settings below.
 
 ```bash
 go get github.com/clem109/go-wechat-work
@@ -32,8 +32,8 @@ func main() {
 			MsgType:     "msgtype",
 			MsgURL:      "msgurl",
 			BtnTxt:      "btntxt",
-			ToUser:      "touser",
-			ToParty:     "toparty",
+			ToUser:      "@all",
+			ToParty:     "@all",
 			ToTag:       "tostring",
 			Title:       "Title",
 			Description: "Description",
