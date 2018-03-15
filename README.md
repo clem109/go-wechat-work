@@ -13,6 +13,8 @@ go get github.com/clem109/go-wechat-work
 
 ## Usage
 
+In the below example we include TextCard, Text and News however only the News will be sent as the MsgType is set to "news".
+
 ```go
 package main
 
