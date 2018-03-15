@@ -3,7 +3,7 @@
 
 # WeChat Work
 
-Use the WeChat work API in your Golang apps to send a Text Card (文本卡片消息)
+Use the WeChat work API in your Golang apps to send notifications
 
 API reference for [WeChat Work](https://work.weixin.qq.com/api/doc#10167), please check this to know how to configure the settings below.
 
@@ -19,33 +19,42 @@ package main
 import ("github.com/clem109/go-wechat-work")
 
 func main() {
-	wechatMessage := wechat.Plugin{
-    // Fill this in with your own details, whether that is via
-    // env var or a YAML file.
-    // Method, Safe, ContentType, Debug and SkipVerify best to leave
-    // how it is.
-		Config: wechat.Config{
-			Method:      "POST",
-			CorpID:      "corpid",
-			CorpSecret:  "corp-secret",
-			Agentid:     123242,
-			MsgType:     "msgtype",
-			MsgURL:      "msgurl",
-			BtnTxt:      "btntxt",
-			ToUser:      "@all",
-			ToParty:     "@all",
-			ToTag:       "tostring",
-			Title:       "Title",
-			Description: "Description",
-			Safe:        0,
-			ContentType: "application/json",
-			Debug:       false,
-			SkipVerify:  true,
+	wechat := WeChatWork{
+		Config: Config{
+			CorpID:     "corpid",
+			CorpSecret: "somesecret",
+			SkipVerify: true,
+			Debug:      false,
+			Notification: Notification{
+				Agentid: 123456,
+				MsgType: "news",
+				ToUser:  "@all",
+				ToParty: "@all",
+				ToTag:   "@all",
+				Safe:    0,
+				TextCard: TextCard{
+					Title:       "test",
+					Description: "testing",
+					MsgURL:      "someurl;",
+					BtnTxt:      "p",
+				},
+				Text: Text{
+					Content: "text message test",
+				},
+				News: News{
+					Articles: []Article{
+						Article{
+							Title:       "Testing News",
+							Description: "Star my repo ;)",
+							URL:         "https://github.com/clem109/go-wechat-work",
+							PicURL:      "https://raw.githubusercontent.com/clem109/glowing-gopher/master/gopher.jpeg",
+						},
+					},
+				},
+			},
 		},
 	}
-  err = wechatMessage.Exec()
-  if err != nil {
-    // deal with the error
-  }
+
+	wechat.Exec()
 }
 ```
