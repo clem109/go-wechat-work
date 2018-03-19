@@ -1,5 +1,6 @@
 [![Go Report Card](https://goreportcard.com/badge/clem109/go-wechat-work)](https://goreportcard.com/report/clem109/go-wechat-work)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/clem109/go-wechat-work/blob/master/LICENSE)
+[![GoDoc](https://godoc.org/github.com/clem109/go-wechat-work?status.svg)](https://godoc.org/github.com/clem109/go-wechat-work)
 
 # WeChat Work
 
